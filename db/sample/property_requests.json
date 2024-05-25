@@ -1,0 +1,35 @@
+[
+    {
+      "propertyType": "HOUSE",
+      "area": 200,
+      "price": 2000,
+      "city": "Chicago",
+      "district": "Downtown",
+      "description": "Family house with garden"
+    },
+    {
+      "propertyType": "LAND",
+      "area": 1000,
+      "price": 10000,
+      "city": "San Francisco",
+      "district": "Bay Area",
+      "description": "Prime land for development"
+    },
+    {
+      "propertyType": "APARTMENT",
+      "area": 100,
+      "price": 1000,
+      "city": "New York",
+      "district": "Manhattan",
+      "description": "Luxury apartment in downtown"
+    },
+    {
+      "propertyType": "VILLA",
+      "area": 500,
+      "price": 5000,
+      "city": "Los Angeles",
+      "district": "Beverly Hills",
+      "description": "Elegant villa with a pool"
+    }
+  ]
+  

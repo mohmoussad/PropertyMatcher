@@ -1,0 +1,51 @@
+[
+  {
+    "name": "Client 1",
+    "phone": "0000001",
+    "password": "password",
+    "role": "CLIENT",
+    "status": "ACTIVE"
+  },
+  {
+    "name": "Client 2",
+    "phone": "0000002",
+    "password": "password",
+    "role": "CLIENT",
+    "status": "ACTIVE"
+  },
+  {
+    "name": "Client 3",
+    "phone": "0000003",
+    "password": "password",
+    "role": "CLIENT",
+    "status": "ACTIVE"
+  },
+  {
+    "name": "Agent 1",
+    "phone": "1234567891",
+    "password": "password",
+    "role": "AGENT",
+    "status": "ACTIVE"
+  },
+  {
+    "name": "Agent 2",
+    "phone": "1234567892",
+    "password": "password",
+    "role": "AGENT",
+    "status": "ACTIVE"
+  },
+  {
+    "name": "Agent 3",
+    "phone": "1234567893",
+    "password": "password",
+    "role": "AGENT",
+    "status": "ACTIVE"
+  },
+  {
+    "name": "Admin",
+    "phone": "000000",
+    "password": "password",
+    "role": "ADMIN",
+    "status": "ACTIVE"
+  }
+]
