@@ -1,7 +1,7 @@
 const PropertyRequest = require("../models/PropertyRequest");
 const { CustomError } = require("../middlewares/errorHandler");
 
-exports.createRequest = async (req, res) => {
+exports.createPropertyRequest = async (req, res) => {
   const { propertyType, area, price, city, district, description } = req.body;
   const propertyRequest = new PropertyRequest({
     propertyType, area, price, city, district, description, createdBy: req.user._id
@@ -10,7 +10,7 @@ exports.createRequest = async (req, res) => {
   res.status(201).send(propertyRequest);
 };
 
-exports.updateRequest = async (req, res) => {
+exports.updatePropertyRequest = async (req, res) => {
   const { description, area, price } = req.body;
   const propertyRequest = await PropertyRequest.findById(req.params.id);
   if (!propertyRequest || propertyRequest.createdBy.toString() !== req.user._id.toString()) {
