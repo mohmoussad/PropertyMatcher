@@ -4,7 +4,7 @@ const Ad = require("./models/Ad");
 const PropertyRequest = require("./models/PropertyRequest");
 const fs = require("fs");
 const bcrypt = require("bcryptjs");
-const connectDb = require("./db/db");
+const connectDb = require("./db/connectDb");
 
 let usersData = JSON.parse(fs.readFileSync("./db/sample/users.json", "utf8")).map((user) => {
   return {
