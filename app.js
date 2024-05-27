@@ -30,7 +30,7 @@ app.get("/", (req, res) => {
 });
 
 app.use((req, res, next) => {
-  next(new CustomError("NotFound"));
+  next(new CustomError({ type: "NotFound" }));
 });
 
 app.use(errorHandler);

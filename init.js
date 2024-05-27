@@ -5,6 +5,9 @@ const PropertyRequest = require("./models/PropertyRequest");
 const fs = require("fs");
 const bcrypt = require("bcryptjs");
 const connectDb = require("./config/connectDb");
+const { logger } = require("./config/logger");
+const { CustomError } = require("./middlewares/errorHandler");
+
 let usersData = JSON.parse(fs.readFileSync("./db-sample/users.json", "utf8")).map((user) => {
   return {
     ...user,
@@ -12,12 +15,12 @@ let usersData = JSON.parse(fs.readFileSync("./db-sample/users.json", "utf8")).ma
   };
 });
 
-let adsData = JSON.parse(fs.readFileSync("./db/sample/ads.json", "utf8"));
 let adsData = JSON.parse(fs.readFileSync("./db-sample/ads.json", "utf8"));
 let propertyRequestsData = JSON.parse(fs.readFileSync("./db-sample/property_requests.json", "utf8"));
+
 const insertSampleData = async () => {
   connectDb();
-  console.log("Initializing db..")
+  logger.log("info", "Initializing db..");
   try {
     await User.deleteMany({});
     await Ad.deleteMany({});
@@ -40,9 +43,10 @@ const insertSampleData = async () => {
       })
     );
 
-    console.log("Sample user data inserted");
+    logger.log("info","Sample user data inserted");
   } catch (err) {
-    console.log("Error inserting sample data:", err);
+    logger.log("error", err);
+    throw new CustomError("InternalServerError");
   }
 };
 

@@ -1,4 +1,5 @@
-const PropertyRequest = require('../models/PropertyRequest');
+const PropertyRequest = require("../models/PropertyRequest");
+const { CustomError } = require("../middlewares/errorHandler");
 
 exports.createRequest = async (req, res) => {
   const { propertyType, area, price, city, district, description } = req.body;
@@ -13,7 +14,7 @@ exports.updateRequest = async (req, res) => {
   const { description, area, price } = req.body;
   const propertyRequest = await PropertyRequest.findById(req.params.id);
   if (!propertyRequest || propertyRequest.createdBy.toString() !== req.user._id.toString()) {
-    return res.status(404).send({ error: 'Request not found or unauthorized' });
+    throw new CustomError({ type: "NotFound", code: 404, message: "Request not found or unauthorized" });
   }
   propertyRequest.description = description || propertyRequest.description;
   propertyRequest.area = area || propertyRequest.area;

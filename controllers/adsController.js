@@ -1,5 +1,6 @@
-const Ad = require('../models/Ad');
-const PropertyRequest = require('../models/PropertyRequest');
+const { CustomError } = require("../middlewares/errorHandler");
+const Ad = require("../models/Ad");
+const PropertyRequest = require("../models/PropertyRequest");
 
 exports.createAd = async (req, res) => {
   const { propertyType, area, price, city, district, description } = req.body;
@@ -12,7 +13,7 @@ exports.createAd = async (req, res) => {
 exports.matchRequests = async (req, res) => {
   const ad = await Ad.findById(req.params.id);
   if (!ad) {
-    return res.status(404).send({ error: 'Ad not found' });
+    throw new CustomError({type: "NotFound"})
   }
 
   const page = parseInt(req.query.page) || 1;
@@ -34,11 +35,10 @@ exports.matchRequests = async (req, res) => {
     {
       $facet: {
         data: [{ $skip: (page - 1) * limit }, { $limit: limit }],
-        total: [{ $count: 'total' }]
+        total: [{ $count: "total" }]
       }
     }
   ]);
 
   res.send(matches);
 };
-
