@@ -12,5 +12,7 @@ const propertyRequestSchema = new Schema({
   createdBy: { type: Schema.Types.ObjectId, ref: 'User', required: true }
 });
 
+propertyRequestSchema.index({ district: 1, area: 1, price: 1});
+
 const PropertyRequest = mongoose.model('PropertyRequest', propertyRequestSchema);
 module.exports = PropertyRequest;
