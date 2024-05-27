@@ -25,6 +25,8 @@ services:
       - mongo
     env_file:
       - .env
+    profiles:
+      - init
 
 volumes:
   mongo-data:
