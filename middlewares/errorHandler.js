@@ -8,11 +8,13 @@ const errDict = {
 };
 
 class CustomError extends Error {
-  constructor(type, code, message) {
+  constructor(errProps) {
     super();
-    this.type = type || "InternalServerError";
-    this.code = code || errDict[this.type].code || 500;
-    this.message = message || errDict[this.type].defaultMessage ||"An unexpected error occurred on the server.";
+    this.type = errProps.type || "InternalServerError";
+    this.code = errProps.code || errDict[this.type].code || 500;
+    this.message =
+      errProps.message || errDict[this.type].defaultMessage || "An unexpected error occurred on the server.";
+    this.details = errProps.details || [];
   }
 }
 

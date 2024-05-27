@@ -4,8 +4,8 @@ const controller = (controllerFunction) => async (req, res, next) => {
   try {
     await controllerFunction(req, res, next);
   } catch (error) {
-    if (!error.title) {
-      return next(new CustomError("InternalServerError"));
+    if (!error.type) {
+      return next(new CustomError({ type: "InternalServerError" }));
     }
     return next(error);
   }
