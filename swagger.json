@@ -1,0 +1,23 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+      "title": "Property Matching System API",
+      "version": "1.0.0",
+      "description": "API documentation for the Property Matching System"
+    },
+    "components": {
+      "securitySchemes": {
+        "bearerAuth": {
+          "type": "http",
+          "scheme": "bearer",
+          "bearerFormat": "JWT"
+        }
+      }
+    },
+    "security": [
+      {
+        "bearerAuth": []
+      }
+    ]
+  }
+  

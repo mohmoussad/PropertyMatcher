@@ -1,6 +1,8 @@
+const fs = require("fs");
 const express = require("express");
 const bodyParser = require("body-parser");
 const connectDb = require("./db/connectDb");
+const swaggerUi = require("swagger-ui-express");
 
 require("dotenv").config();
 connectDb();
@@ -18,6 +20,10 @@ app.use("/api/auth", authRoutes);
 app.use("/api/propertyRequests", propertyRequestRoutes);
 app.use("/api/ads", adRoutes);
 app.use("/api/admin/stats", statsRoutes);
+
+const swaggerDocument = JSON.parse(fs.readFileSync("swagger.json", "utf8"));
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+
 app.get("/", (req, res) => {
   res.json({ message: "Up and Running!" });
 });
