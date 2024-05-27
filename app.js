@@ -3,6 +3,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const connectDb = require("./db/connectDb");
 const swaggerUi = require("swagger-ui-express");
+const { errorHandler, CustomError } = require("./middlewares/errorHandler");
 
 require("dotenv").config();
 connectDb();
@@ -27,6 +28,12 @@ app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.get("/", (req, res) => {
   res.json({ message: "Up and Running!" });
 });
+
+app.use((req, res, next) => {
+  next(new CustomError("NotFound"));
+});
+
+app.use(errorHandler);
 
 const port = process.env.PORT || 3000;
 
