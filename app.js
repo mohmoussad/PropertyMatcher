@@ -1,7 +1,7 @@
 const fs = require("fs");
 const express = require("express");
 const bodyParser = require("body-parser");
-const connectDb = require("./db/connectDb");
+const connectDb = require("./config/connectDb");
 const swaggerUi = require("swagger-ui-express");
 const { errorHandler, CustomError } = require("./middlewares/errorHandler");
 

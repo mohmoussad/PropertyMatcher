@@ -4,9 +4,8 @@ const Ad = require("./models/Ad");
 const PropertyRequest = require("./models/PropertyRequest");
 const fs = require("fs");
 const bcrypt = require("bcryptjs");
-const connectDb = require("./db/connectDb");
-
-let usersData = JSON.parse(fs.readFileSync("./db/sample/users.json", "utf8")).map((user) => {
+const connectDb = require("./config/connectDb");
+let usersData = JSON.parse(fs.readFileSync("./db-sample/users.json", "utf8")).map((user) => {
   return {
     ...user,
     password: bcrypt.hashSync(user.password, 10),
@@ -14,8 +13,8 @@ let usersData = JSON.parse(fs.readFileSync("./db/sample/users.json", "utf8")).ma
 });
 
 let adsData = JSON.parse(fs.readFileSync("./db/sample/ads.json", "utf8"));
-let propertyRequestsData = JSON.parse(fs.readFileSync("./db/sample/property_requests.json", "utf8"));
-
+let adsData = JSON.parse(fs.readFileSync("./db-sample/ads.json", "utf8"));
+let propertyRequestsData = JSON.parse(fs.readFileSync("./db-sample/property_requests.json", "utf8"));
 const insertSampleData = async () => {
   connectDb();
   console.log("Initializing db..")
