@@ -39,6 +39,7 @@ The matching logic is used to find property requests that match the criteria of 
 - Ad Schema: The ad schema represents a real estate advertisement. It includes properties such as propertyType, area, price, city, district, description, and createdBy. The createdBy field is a reference to the user who created the ad.
 
 - Property Request Schema: This schema models a property request made by a user. It contains fields such as propertyType, area, price, city, district, description, and createdBy. Similar to the ad schema, the createdBy field references the user who made the request.
+![Screenshot from 2024-05-27 23-11-23](https://github.com/mohmoussad/PropertyMatcher/assets/88286511/224682e3-d1c4-498f-8277-e19d4e0de0ce)
 
 ## Technologies Used
 - Node.js
