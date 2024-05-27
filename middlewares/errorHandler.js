@@ -1,6 +1,7 @@
 const errDict = {
   ValidationError: { code: 400, defaultMessage: "The request data contains validation errors." },
-  AuthenticationError: { code: 401, defaultMessage: "Authentication failed. Please log in again." },
+  ConflictError: { code: 409, defaultMessage: "This identifier is already existed." },
+  AuthenticationError: { code: 401, defaultMessage: "Authentication failed." },
   AuthorizationError: { code: 403, defaultMessage: "You are not authorized to access this resource." },
   NotFound: { code: 404, defaultMessage: "The requested resource was not found." },
   InternalServerError: { code: 500, defaultMessage: "An unexpected error occurred on the server." },
